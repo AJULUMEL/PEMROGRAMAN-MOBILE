@@ -116,41 +116,62 @@ void greet({String name = 'Guest'}) {}
 Artinya, function bisa disimpan dalam variabel, dikirim sebagai parameter, dan dikembalikan dari function lain.
 
 void sayHello() => print('Hello');
+
 var greet = sayHello; // disimpan di variabel
+
 greet(); // memanggil function lewat variabel
 
 5. Anonymous Functions
 Anonymous function adalah function tanpa nama, biasanya digunakan sebagai parameter atau callback.
 
 var list = [1, 2, 3];
+
 list.forEach((item) {
+
   print(item);
+
 });
 
 6. - Lexical scope: Variabel hanya bisa diakses di area (scope) tempat variabel itu dideklarasikan.
 
 void main() {
+
   int x = 10;
+
   void printX() {
+
     print(x); // x bisa diakses
+
   }
+
   printX();
+
 }
 
 - Lexical closure: Function yang “mengikat” variabel dari scope di atasnya, sehingga variabel tetap bisa diakses walau scope aslinya sudah selesai.
 
 Function makeAdder(int addBy) {
+
   return (int i) => i + addBy;
+
 }
+
 var add2 = makeAdder(2);
+
 print(add2(3)); // Output: 5
 
 7. Return multiple value di Functions Gunakan record atau tuple (Dart 3) atau return Map/List.
 
 // Dengan record (Dart 3)
+
 (String, int) getData() {
+
   return ('Nama', 123);
+
 }
+
 var hasil = getData();
+
 print(hasil.$1); // 'Nama'
+
 print(hasil.$2); // 123
