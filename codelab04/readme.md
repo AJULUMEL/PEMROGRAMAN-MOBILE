@@ -44,13 +44,13 @@ Kode di atas mendemonstrasikan penggunaan struktur data Map di Dart dengan berba
 
 Kode di atas mendemonstrasikan penggunaan spread operator pada list di Dart, serta fleksibilitas tipe data dengan List<dynamic>. List list1 dapat berisi nilai campuran, termasuk null, tanpa error. Spread operator digunakan untuk membuat list baru (list2, list3, dan nimList) dengan menggabungkan isi list lain atau string yang dipecah menjadi karakter. 
 
-4. ![Soal 4.4](img/praktikum4.4.1.png.)
+4. ![Soal 4.4](img/praktikum4.4.1.png)
 
 Jika promoActive = true, hasil nav adalah:
 
 ['Home', 'Furniture', 'Plants', 'Outlet']
 
-![Soal 4.4](img/praktikum4.4.2.png.)
+![Soal 4.4](img/praktikum4.4.2.png)
 
 Jika promoActive = false, hasil navFalse adalah:
 
@@ -58,35 +58,35 @@ Jika promoActive = false, hasil navFalse adalah:
 
 Jadi, elemen 'Outlet' hanya muncul di list jika promo aktif (true).
 
-5. ![Soal 4.5](img/praktikum4.5.1.png.)
+5. ![Soal 4.5](img/praktikum4.5.1.png)
 
 ika login = 'Manager', maka nav2 berisi:
 ['Home', 'Furniture', 'Plants', 'Inventory']
 
-![Soal 4.5](img/praktikum4.5.2.png.)
+![Soal 4.5](img/praktikum4.5.2.png)
 
 Jika login = 'Staff', maka nav2Staff berisi:
 ['Home', 'Furniture', 'Plants']
 
-6. ![Soal 4.6](img/praktikum4.6.png.)
+6. ![Soal 4.6](img/praktikum4.6.png)
 
 Kode tersebut menggunakan Collection For untuk membuat list baru listOfStrings dari listOfInts, sehingga setiap angka diubah menjadi string dengan format '#angka' secara langsung dalam deklarasi list. Cara ini membuat proses transformasi list lebih ringkas dan efisien tanpa perlu loop terpisah.
 
 *Praktikum 5: Eksperimen Tipe Data Records*
 
-1. ![Soal 5.1](img/praktikum5.1.png.)
+1. ![Soal 5.1](img/praktikum5.1.png)
 
 2. Kode di atas mendemonstrasikan fitur record di Dart, yaitu struktur data yang dapat menyimpan beberapa nilai dengan urutan dan label berbeda dalam satu variabel. Record ini berisi dua nilai tanpa label dan dua nilai dengan label (a dan b), lalu seluruh isi record ditampilkan ke layar.
 
-3. ![Soal 5.3](img/praktikum5.3.png.)
+3. ![Soal 5.3](img/praktikum5.3.png)
 
 fungsi tukar() digunakan di dalam main() untuk menukar nilai pada record (10, 20), sehingga proses pertukaran value field pada Records dapat terlihat dengan jelas melalui output sebelum dan sesudah pertukaran.
 
-4. ![Soal 5.4](img/praktikum5.4.png.)
+4. ![Soal 5.4](img/praktikum5.4.png)
 
 Kode di atas mendemonstrasikan cara menggunakan record di Dart untuk menyimpan data mahasiswa berupa nama dan NIM dalam satu variabel bertipe (String, int). Record ini diinisialisasi dengan nilai 'Dandi Azrul Syahputra' dan 2341720118
 
-5. ![Soal 5.5](img/praktikum5.5.png.)
+5. ![Soal 5.5](img/praktikum5.5.png)
 
 Kode di atas membuat record mahasiswa2 yang berisi nama dan NIM Anda pada field pertama dan field a, lalu menampilkan masing-masing field dengan akses menggunakan $1, .a, .b, dan $2.
 
