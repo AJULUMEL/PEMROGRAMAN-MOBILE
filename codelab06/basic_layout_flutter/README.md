@@ -1,6 +1,14 @@
 # basic_layout_flutter
 
-A new Flutter project.
+Nama : Dandi Azrul Syahputra
+
+Kelas : TI  3F
+
+No.Absen : 07
+
+## Hasil Tugas Praktikum 1
+
+![Tugas Praktikum 1](images/tugaspraktikum1.png)
 
 ## Getting Started
 
