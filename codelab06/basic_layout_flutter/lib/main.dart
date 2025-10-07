@@ -34,7 +34,7 @@ class RecipeLayout extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(bottom: 8),
             child: const Text(
-              'Strawberry Pavlova',
+              'Bakso Special',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
@@ -42,7 +42,7 @@ class RecipeLayout extends StatelessWidget {
             ),
           ),
           Text(
-            'Pavlova is a meringue-based dessert named after the Russian ballerina Anna Pavlova. Pavlova features a crisp crust and soft, light inside, topped with fruit and whipped cream.',
+            'Bakso adalah makanan khas Indonesia berupa bola daging yang disajikan dalam kuah kaldu yang gurih. Biasanya disajikan dengan mie, tahu, dan sayuran segar.',
             style: TextStyle(
               color: Colors.grey[600],
               fontSize: 16,
@@ -111,21 +111,21 @@ class RecipeLayout extends StatelessWidget {
               children: [
                 Icon(Icons.kitchen, color: Colors.green[500]),
                 const Text('PREP:'),
-                const Text('25 min'),
+                const Text('15 min'),
               ],
             ),
             Column(
               children: [
                 Icon(Icons.timer, color: Colors.green[500]),
                 const Text('COOK:'),
-                const Text('1 hr'),
+                const Text('30 min'),
               ],
             ),
             Column(
               children: [
                 Icon(Icons.restaurant, color: Colors.green[500]),
-                const Text('FEEDS:'),
-                const Text('4-6'),
+                const Text('SERVES:'),
+                const Text('2-3'),
               ],
             ),
           ],
@@ -148,7 +148,7 @@ class RecipeLayout extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Flutter Layout Demo'),
+        title: const Text('Bakso Special Recipe'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -175,10 +175,43 @@ class RecipeLayout extends StatelessWidget {
                         topRight: Radius.circular(12),
                         bottomRight: Radius.circular(12),
                       ),
-                      child: Image.network(
-                        'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400',
+                      child: Image.asset(
+                        'images/bakso.png',
                         fit: BoxFit.cover,
                         height: 600,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            height: 600,
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300],
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(12),
+                                bottomRight: Radius.circular(12),
+                              ),
+                            ),
+                            child: const Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.restaurant,
+                                    size: 64,
+                                    color: Colors.grey,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    'Bakso Special',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
