@@ -79,10 +79,7 @@ final GoRouter _router = GoRouter(
 );
 ```
 
-### 3. Hero Animation
-Implementasi Hero widget untuk transisi gambar yang smooth antara HomePage dan ItemPage.
-
-### 4. Component Breakdown
+### 3. Component Breakdown
 - `ProductCard` - Komponen kartu produk yang reusable
 - `FooterWidget` - Komponen footer terpisah
 - Pemisahan logic dan UI untuk maintainability
