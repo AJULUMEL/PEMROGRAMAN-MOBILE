@@ -22,6 +22,30 @@ Menampilkan daftar Task dengan setiap baris ListTile berisi Checkbox dan TextFor
 
 Langkah 11 & 13: initState() menginisialisasi ScrollController dan menambahkan listener untuk menghapus fokus TextField saat scroll (mengatasi keyboard menutup konten). dispose() membersihkan (dispose) controller saat widget dihapus agar tidak terjadi memory leak atau listener tertinggal.
 
+
+2. Jelaskan mana yang dimaksud InheritedWidget pada langkah 1 tersebut! Mengapa yang digunakan InheritedNotifier?
+
+InheritedWidget (Langkah 1)
+
+Yang dimaksud: class PlanProvider di
+(extends InheritedNotifier<ValueNotifier<Plan>>).
+
+Mengapa InheritedNotifier: otomatis me-rebuild widget yang depend saat notifier berubah, tanpa menulis updateShouldNotify; ringan, cocok dengan ValueNotifier<Plan>.
+
+3. Jelaskan maksud dari method di langkah 3 pada praktikum tersebut! Mengapa dilakukan demikian?
+
+Method pada Langkah 3
+
+completedCount: menghitung jumlah task yang complete.
+completenessMessage: membuat teks progres “x out of y tasks”.
+Alasan: logika turunan ditempatkan di model (single source of truth), UI lebih bersih dan mudah diuji/dipakai ulang.
+
+4. Lakukan capture hasil dari Langkah 9 berupa GIF, kemudian jelaskan apa yang telah Anda buat!
+
+![gif praktikum 2](images/praktikum2langkah9.gif)
+
+Fitur: tambah task via FAB, edit deskripsi (TextFormField), centang/uncheck (Checkbox), footer menampilkan progres real‑time dari Plan.completenessMessage lewat ValueListenableBuilder + PlanProvider.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
