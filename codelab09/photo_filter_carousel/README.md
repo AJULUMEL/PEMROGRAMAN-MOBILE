@@ -1,6 +1,6 @@
 # photo_filter_carousel
 
-A new Flutter project.
+![Hasil Praktikum 2](images/hasilpraktikum2.png)
 
 ## Getting Started
 
