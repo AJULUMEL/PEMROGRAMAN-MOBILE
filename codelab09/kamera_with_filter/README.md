@@ -21,21 +21,7 @@ Flutter project untuk Praktikum 1 & 2: Mengambil Foto dengan Filter secara Real-
 - Ambil foto dengan filter yang telah dipilih
 - Tampilkan hasil foto dengan filter yang telah diterapkan
 
-## Cara Menjalankan
-
-1) Install dependencies:
-
-```
-flutter pub get
-```
-
-2) Jalankan aplikasi (contoh untuk Android emulator/perangkat):
-
-```
-flutter run
-```
-
-3) Cara menggunakan:
+1) Cara menggunakan:
 
 - Aplikasi akan langsung membuka kamera
 - Geser filter carousel di bagian bawah untuk memilih filter warna
