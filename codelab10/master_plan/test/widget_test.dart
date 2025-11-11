@@ -11,14 +11,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:master_plan/main.dart';
 
 void main() {
-  testWidgets('App renders Master Plan screen', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('App shows Master Plans creator screen', (WidgetTester tester) async {
     await tester.pumpWidget(const MasterPlanApp());
 
-    // Verify that AppBar title exists
-    expect(find.text('Master Plan'), findsOneWidget);
+    // Verify the creator screen title is present
+    expect(find.text('Master Plans Dandi Azrul Syahputra'), findsOneWidget);
 
-    // Verify FAB exists
-    expect(find.byIcon(Icons.add), findsOneWidget);
+    // Verify the TextField to add a plan exists
+    expect(find.byType(TextField), findsOneWidget);
   });
 }
