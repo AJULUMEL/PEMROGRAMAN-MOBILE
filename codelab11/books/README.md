@@ -4,6 +4,18 @@
 
 ![screenshoot soal 2](images/W11SOAL2.png)
 
+Soal 3
+
+Jelaskan maksud kode langkah 5 tersebut terkait substring dan catchError!
+
+- substring(0, 450)
+Mengambil 450 karakter pertama dari response body API (yang berupa JSON string panjang). Ini dilakukan agar text yang ditampilkan tidak terlalu panjang dan memenuhi layar.
+
+- catchError
+Menangkap error jika terjadi kegagalan saat mengambil data dari API (misal: tidak ada koneksi internet, timeout, atau API error). Jika error terjadi, variabel result akan diisi dengan pesan 'An error occurred' dan UI akan di-update melalui setState().
+
+![GIF SOAL3](images/W11SOAL3.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
