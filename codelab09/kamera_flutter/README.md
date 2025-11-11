@@ -1,6 +1,6 @@
 # kamera_flutter
 
-A new Flutter project.
+![Praktikum 1](images/praktikum1.jpg)
 
 ## Getting Started
 
