@@ -35,11 +35,25 @@ class _PlanScreenState extends State<PlanScreen> {
             (p) => p.name == plan.name,
             orElse: () => plan,
           );
-          return Column(
-            children: [
-              Expanded(child: _buildList(currentPlan)),
-              SafeArea(child: Text(currentPlan.completenessMessage)),
-            ],
+          return SafeArea(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final maxWidth = constraints.maxWidth;
+                final horizontal = maxWidth > 600 ? (maxWidth - 600) / 2 : 16.0;
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: horizontal),
+                  child: Column(
+                    children: [
+                      Expanded(child: _buildList(currentPlan)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Text(currentPlan.completenessMessage),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           );
         },
       ),
@@ -53,21 +67,30 @@ class _PlanScreenState extends State<PlanScreen> {
       child: const Icon(Icons.add),
       onPressed: () {
         final currentPlan = plan;
-        final planIndex =
-            planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
-        final updatedTasks =
-            List<Task>.from(currentPlan.tasks)..add(const Task());
-        planNotifier.value = List<Plan>.from(planNotifier.value)
-          ..[planIndex] = Plan(
-            name: currentPlan.name,
-            tasks: updatedTasks,
-          );
+        final plans = planNotifier.value;
+        int planIndex = plans.indexWhere((p) => p.name == currentPlan.name);
+        // Selalu gunakan versi terbaru dari provider jika ada
+        final basePlan = planIndex == -1 ? currentPlan : plans[planIndex];
+        final updatedTasks = List<Task>.from(basePlan.tasks)..add(const Task());
+
+        if (planIndex == -1) {
+          planNotifier.value = List<Plan>.from(plans)
+            ..add(Plan(name: basePlan.name, tasks: updatedTasks));
+        } else {
+          planNotifier.value = List<Plan>.from(plans)
+            ..[planIndex] = Plan(
+              name: basePlan.name,
+              tasks: updatedTasks,
+            );
+        }
       },
     );
   }
 
   Widget _buildList(Plan plan) {
+    final bottomSafe = MediaQuery.of(context).viewPadding.bottom;
     return ListView.builder(
+      padding: EdgeInsets.only(bottom: bottomSafe + 96.0),
       controller: scrollController,
       keyboardDismissBehavior: Theme.of(context).platform ==
               TargetPlatform.iOS
@@ -75,44 +98,56 @@ class _PlanScreenState extends State<PlanScreen> {
           : ScrollViewKeyboardDismissBehavior.manual,
       itemCount: plan.tasks.length,
       itemBuilder: (context, index) =>
-          _buildTaskTile(plan.tasks[index], index, context),
+          _buildTaskTile(plan, plan.tasks[index], index, context),
     );
   }
 
-  Widget _buildTaskTile(Task task, int index, BuildContext context) {
+  Widget _buildTaskTile(Plan currentPlan, Task task, int index, BuildContext context) {
     final planNotifier = PlanProvider.of(context);
     return ListTile(
       leading: Checkbox(
           value: task.complete,
           onChanged: (selected) {
-            final currentPlan = plan;
-            final planIndex = planNotifier.value
-                .indexWhere((p) => p.name == currentPlan.name);
-            planNotifier.value = List<Plan>.from(planNotifier.value)
-              ..[planIndex] = Plan(
-                name: currentPlan.name,
-                tasks: List<Task>.from(currentPlan.tasks)
-                  ..[index] = Task(
-                    description: task.description,
-                    complete: selected ?? false,
-                  ),
-              );
+            final plans = planNotifier.value;
+            int planIndex = plans.indexWhere((p) => p.name == currentPlan.name);
+            final basePlan = planIndex == -1 ? currentPlan : plans[planIndex];
+            final updatedPlan = Plan(
+              name: basePlan.name,
+              tasks: List<Task>.from(basePlan.tasks)
+                ..[index] = Task(
+                  description: task.description,
+                  complete: selected ?? false,
+                ),
+            );
+
+            if (planIndex == -1) {
+              planNotifier.value = List<Plan>.from(plans)..add(updatedPlan);
+            } else {
+              planNotifier.value = List<Plan>.from(plans)
+                ..[planIndex] = updatedPlan;
+            }
           }),
       title: TextFormField(
         initialValue: task.description,
         onChanged: (text) {
-          final currentPlan = plan;
-          final planIndex = planNotifier.value
-              .indexWhere((p) => p.name == currentPlan.name);
-          planNotifier.value = List<Plan>.from(planNotifier.value)
-            ..[planIndex] = Plan(
-              name: currentPlan.name,
-              tasks: List<Task>.from(currentPlan.tasks)
-                ..[index] = Task(
-                  description: text,
-                  complete: task.complete,
-                ),
-            );
+          final plans = planNotifier.value;
+          int planIndex = plans.indexWhere((p) => p.name == currentPlan.name);
+          final basePlan = planIndex == -1 ? currentPlan : plans[planIndex];
+          final updatedPlan = Plan(
+            name: basePlan.name,
+            tasks: List<Task>.from(basePlan.tasks)
+              ..[index] = Task(
+                description: text,
+                complete: task.complete,
+              ),
+          );
+
+          if (planIndex == -1) {
+            planNotifier.value = List<Plan>.from(plans)..add(updatedPlan);
+          } else {
+            planNotifier.value = List<Plan>.from(plans)
+              ..[planIndex] = updatedPlan;
+          }
         },
       ),
     );

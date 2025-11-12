@@ -24,18 +24,29 @@ class _PlanCreatorScreenState extends State<PlanCreatorScreen> {
     return Scaffold(
       // ganti 'Namaku' dengan nama panggilan Anda jika perlu
       appBar: AppBar(title: const Text('Master Plans Dandi Azrul Syahputra')),
-      body: Column(
-        children: [
-          _buildListCreator(),
-          Expanded(child: _buildMasterPlans()),
-        ],
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final maxWidth = constraints.maxWidth;
+            final horizontal = maxWidth > 600 ? (maxWidth - 600) / 2 : 16.0;
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: horizontal),
+              child: Column(
+                children: [
+                  _buildListCreator(),
+                  Expanded(child: _buildMasterPlans()),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
 
   Widget _buildListCreator() {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         color: Theme.of(context).cardColor,
         elevation: 10,
@@ -82,6 +93,7 @@ class _PlanCreatorScreenState extends State<PlanCreatorScreen> {
     }
 
     return ListView.builder(
+      padding: const EdgeInsets.only(bottom: 96.0),
       itemCount: plans.length,
       itemBuilder: (context, index) {
         final plan = plans[index];

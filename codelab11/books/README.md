@@ -16,6 +16,14 @@ Menangkap error jika terjadi kegagalan saat mengambil data dari API (misal: tida
 
 ![GIF SOAL3](images/W11SOAL3.gif)
 
+Soal 4
+
+Langkah 1: Tiga fungsi async masing‑masing menunggu 3 detik lalu mengembalikan 1, 2, 3 (simulasi kerja lambat tanpa blok UI).
+
+Langkah 2: Fungsi count menunggu ketiganya secara berurutan (≈9 detik total), menjumlahkan (hasil 6), lalu setState agar UI menampilkan nilai tersebut.
+
+![GIF SOAL4](images/W11SOAL4-ezgif.com-video-to-gif-converter.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
