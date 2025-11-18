@@ -38,6 +38,10 @@ Soal 6
 
 ![GIF SOAL 6](images/W11SOAL6.gif)
 
+Soal 7
+
+![GIF SOAL 7](images/W11SOAL7.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
