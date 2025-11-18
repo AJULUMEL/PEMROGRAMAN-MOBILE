@@ -35,8 +35,19 @@ Langkah 14: Menangani error pada listener di initState dengan onError; saat erro
 
 Langkah 15: addRandomNumber() diubah untuk memicu error (memanggil addError) alih-alih mengirim angka acak, sehingga jalur penanganan error bisa diuji.
 
+Soal 8
 
+Langkah 1: Mendeklarasikan variabel StreamTransformer untuk memproses event sebelum dikonsumsi listener.
+
+Langkah 2: Menginisialisasi transformer dengan fromHandlers:
+handleData: setiap angka dikalikan 10 lalu diteruskan.
+handleError: saat error, meneruskan nilai pengganti −1.
+handleDone: menutup sink.
+
+Langkah 3: Menerapkan transformer pada stream sebelum listen. Akibatnya, UI menerima angka yang sudah ×10 dan jika ada error akan menampilkan −1.
 A new Flutter project.
+
+![GIF SOAL 8](images/W12SOAL8.gif)
 
 ## Getting Started
 
