@@ -24,6 +24,16 @@ Langkah 2: Fungsi count menunggu ketiganya secara berurutan (≈9 detik total), 
 
 ![GIF SOAL4](images/W11SOAL4-ezgif.com-video-to-gif-converter.gif)
 
+Soal 5
+
+Jelaskan maksud kode langkah 2 tersebut!
+
+Kode langkah 2 memakai Completer untuk membuat Future yang diselesaikan manual: dideklarasikan late Completer, lalu getNumber() menginisialisasi Completer<int>, memanggil calculate(), dan langsung mengembalikan completer.future; sementara calculate() menunggu 5 detik lalu completer.complete(42), sehingga Future dari getNumber() selesai dengan nilai 42 yang bisa di-then/await oleh pemanggil.
+
+![GIF SOAL 5](images/W11SOAL5.gif)
+
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
