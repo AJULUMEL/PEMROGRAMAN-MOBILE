@@ -74,6 +74,14 @@ Ya, ada perbedaan. Sekarang UI memakai FutureBuilder yang bereaksi ke status Fut
 
 ![GIF SOAL 13](images/W11SOAL13.gif)
 
+Soal 14
+
+Perbedaan UI hanya muncul saat terjadi error.
+Sebelumnya, FutureBuilder menampilkan loading lalu data; jika gagal, bisa kosong/ambigu.
+Setelah langkah 5, pada state done dengan snapshot.hasError, UI menampilkan pesan “Something terrible happened!”.
+Jadi sukses = sama, gagal = kini ada tampilan error karena cabang pengecekan error ditambahkan.
+
+![GIF SOAL 14](images/W11SOAL14.gif)
 
 ## Getting Started
 
