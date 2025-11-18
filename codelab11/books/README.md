@@ -83,6 +83,24 @@ Jadi sukses = sama, gagal = kini ada tampilan error karena cabang pengecekan err
 
 ![GIF SOAL 14](images/W11SOAL14.gif)
 
+Soal 16
+
+Saat menekan Red/Green/Blue di NavigationSecond, layar kembali ke NavigationFirst dan warna latar berubah sesuai pilihan.
+
+Penyebab: tombol memanggil Navigator.pop(context, <Color>) yang mengirim Color ke layar sebelumnya. 
+
+![GIF SOAL 16](images/W11SOAL16.gif)
+
+Soal 17
+
+Menekan Red/Green/Blue menutup dialog dan warna background layar berubah sesuai pilihan.
+
+Sebab tiap tombol memanggil Navigator.pop(context, <Color>) sehingga showDialog<Color> selesai dengan nilai warna itu; setelah await selesai, setState dipanggil dan Scaffold rebuild memakai warna baru.
+
+Karena barrierDismissible: false, dialog tidak bisa ditutup dengan tap di luar; jika ditutup tanpa memilih (mis. tombol back) hasilnya null dan warna tidak berubah.
+
+![GIF SOAL 17](images/W11SOAL17.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
