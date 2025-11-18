@@ -62,6 +62,13 @@ Langkah 1: Memakai FutureGroup dari package async. Anda membuat objek, menambahk
 
 Langkah 4: Memakai Future.wait bawaan Dart. Beri daftar futures sekali, menunggu semuanya selesai lalu mengembalikan List hasil.
 
+Soal 12
+
+Di browser bisa, tapi bukan “GPS murni”. Geolocator web memakai HTML5 Geolocation API: hanya bekerja pada origin aman (HTTPS atau http://localhost) dan setelah pengguna memberi izin. Di desktop/Chrome biasanya hasilnya perkiraan (berdasarkan Wi‑Fi/IP), sehingga kurang akurat; jika izin ditolak atau berjalan di konteks tidak aman, koordinat tidak akan didapat.
+
+![GIF SOAL 12](images/W11SOAL12.gif)
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
