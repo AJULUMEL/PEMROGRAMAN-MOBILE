@@ -1,8 +1,13 @@
 # stream_Dandi Azrul Syahputra
+SOAL 1
 
 ![GIF SOAL 1](images/W12SOAL1.gif)
 
+SOAL 3
 
+yield*: mendelegasikan/menyalurkan semua event dari Stream lain ke Stream ini (forwarding).
+
+Maksud kode: setiap 1 detik Stream.periodic memproduksi indeks t, diubah menjadi index = t % colors.length, lalu mengirim warna pada posisi itu. Hasilnya, getColors() memancarkan warna dari daftar secara berurutan dan berulang tiap detik.
 
 A new Flutter project.
 
