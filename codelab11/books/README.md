@@ -49,6 +49,11 @@ Jelaskan maksud perbedaan kode langkah 1 dan 4!
 Langkah 1 (FutureGroup)Memakai kelas FutureGroup dari package async. 
 
 Langkah 4 (Future.wait)Memakai API bawaan Dart tanpa paket tambahan.
+
+Soal 9
+
+![GIF SOAL 9](images/W11SOAL9.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
