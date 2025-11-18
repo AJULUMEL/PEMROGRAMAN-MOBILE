@@ -68,6 +68,12 @@ Di browser bisa, tapi bukan “GPS murni”. Geolocator web memakai HTML5 Geoloc
 
 ![GIF SOAL 12](images/W11SOAL12.gif)
 
+Soal 13
+
+Ya, ada perbedaan. Sekarang UI memakai FutureBuilder yang bereaksi ke status Future: saat waiting menampilkan CircularProgressIndicator, dan saat done menampilkan koordinat. Pada praktikum sebelumnya Text hanya di-update lewat setState setelah data didapat, sehingga loading tidak terlihat. Penambahan delay 3 detik makin membuat state waiting terlihat.
+
+![GIF SOAL 13](images/W11SOAL13.gif)
+
 
 ## Getting Started
 
