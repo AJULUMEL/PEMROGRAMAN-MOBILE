@@ -52,6 +52,7 @@ class _StreamHomePageState extends State<StreamHomePage> {
   late StreamController numberStreamController;
   late NumberStream numberStream;
   late StreamTransformer<int, int> transformer;
+  late StreamSubscription subscription;
 
   void changeColor() {
     colorStream.getColors().listen((eventColor) {
@@ -76,14 +77,18 @@ class _StreamHomePageState extends State<StreamHomePage> {
     );
 
     Stream<int> stream = numberStreamController.stream as Stream<int>;
-    stream.transform(transformer).listen((event) {
+    subscription = stream.transform(transformer).listen((event) {
       setState(() {
         lastNumber = event;
       });
-    }).onError((error) {
+    });
+    subscription.onError((error) {
       setState(() {
         lastNumber = -1;
       });
+    });
+    subscription.onDone(() {
+      print('OnDone was called');
     });
     colorStream = ColorStream();
     changeColor();
@@ -92,6 +97,7 @@ class _StreamHomePageState extends State<StreamHomePage> {
 
   @override
   void dispose() {
+    subscription.cancel();
     numberStreamController.close();
     super.dispose();
   }
@@ -99,8 +105,18 @@ class _StreamHomePageState extends State<StreamHomePage> {
   void addRandomNumber() {
     Random random = Random();
     int myNum = random.nextInt(10);
-    numberStream.addNumberToSink(myNum);
+    if (!numberStreamController.isClosed) {
+      numberStream.addNumberToSink(myNum);
+    } else {
+      setState(() {
+        lastNumber = -1;
+      });
+    }
     // numberStream.addError();
+  }
+
+  void stopStream() {
+    numberStreamController.close();
   }
 
   @override
@@ -121,6 +137,10 @@ class _StreamHomePageState extends State<StreamHomePage> {
               ElevatedButton(
                 onPressed: () => addRandomNumber(),
                 child: const Text('New Random Number'),
+              ),
+              ElevatedButton(
+                onPressed: () => stopStream(),
+                child: const Text('Stop Subscription'),
               ),
             ],
           ),

@@ -49,6 +49,21 @@ A new Flutter project.
 
 ![GIF SOAL 8](images/W12SOAL8.gif)
 
+Soal 9
+
+Langkah 2: Menyimpan StreamSubscription ke variabel subscription agar bisa dikontrol (cancel/pause/resume) dan menambahkan handler onError/onDone untuk menangani event error dan stream selesai.
+
+Langkah 6: Di dispose(), membatalkan subscription dengan subscription.cancel() dan menutup controller untuk mencegah memory leak saat widget dihapus.
+
+Langkah 8: Mengecek !numberStreamController.isClosed sebelum mengirim data untuk menghindari error saat mencoba menambah angka ke stream yang sudah ditutup.
+
+![GIF SOAL 9](images/W12SOAL9.gif)
+
+![SCREENSHOOT W12 SOAL 9](images/screenshootW12SOAL9.png)
+
+
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
