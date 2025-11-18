@@ -9,6 +9,9 @@ yield*: mendelegasikan/menyalurkan semua event dari Stream lain ke Stream ini (f
 
 Maksud kode: setiap 1 detik Stream.periodic memproduksi indeks t, diubah menjadi index = t % colors.length, lalu mengirim warna pada posisi itu. Hasilnya, getColors() memancarkan warna dari daftar secara berurutan dan berulang tiap detik.
 
+Soal 4
+
+![GIF SOAL 4](images/W12SOAL4.gif)
 A new Flutter project.
 
 ## Getting Started
