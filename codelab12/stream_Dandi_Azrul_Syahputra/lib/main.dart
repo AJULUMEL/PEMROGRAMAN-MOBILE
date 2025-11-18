@@ -53,6 +53,8 @@ class _StreamHomePageState extends State<StreamHomePage> {
   late NumberStream numberStream;
   late StreamTransformer<int, int> transformer;
   late StreamSubscription subscription;
+  late StreamSubscription subscription2;
+  String values = '';
 
   void changeColor() {
     colorStream.getColors().listen((eventColor) {
@@ -77,9 +79,15 @@ class _StreamHomePageState extends State<StreamHomePage> {
     );
 
     Stream<int> stream = numberStreamController.stream as Stream<int>;
-    subscription = stream.transform(transformer).listen((event) {
+    stream = stream.asBroadcastStream();
+    subscription = stream.listen((event) {
       setState(() {
-        lastNumber = event;
+        values += '$event - ';
+      });
+    });
+    subscription2 = stream.listen((event) {
+      setState(() {
+        values += '$event - ';
       });
     });
     subscription.onError((error) {
@@ -88,6 +96,14 @@ class _StreamHomePageState extends State<StreamHomePage> {
       });
     });
     subscription.onDone(() {
+      print('OnDone was called');
+    });
+    subscription2.onError((error) {
+      setState(() {
+        lastNumber = -1;
+      });
+    });
+    subscription2.onDone(() {
       print('OnDone was called');
     });
     colorStream = ColorStream();
@@ -133,7 +149,7 @@ class _StreamHomePageState extends State<StreamHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(lastNumber.toString()),
+              Text(values),
               ElevatedButton(
                 onPressed: () => addRandomNumber(),
                 child: const Text('New Random Number'),

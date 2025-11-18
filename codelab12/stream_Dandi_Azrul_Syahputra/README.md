@@ -61,6 +61,15 @@ Langkah 8: Mengecek !numberStreamController.isClosed sebelum mengirim data untuk
 
 ![SCREENSHOOT W12 SOAL 9](images/screenshootW12SOAL9.png)
 
+Soal 10
+
+Error terjadi karena StreamController default hanya mendukung single-subscription, artinya hanya satu listener yang boleh mendengarkan stream tersebut.
+
+Soal 11
+
+Hal itu terjadi karena ada dua subscription yang mendengarkan stream yang sama (subscription dan subscription2).
+
+![GIF SOAL 11](images/W12SOAL11-ezgif.com-video-to-gif-converter.gif)
 
 
 
