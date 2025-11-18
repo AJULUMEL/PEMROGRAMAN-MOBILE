@@ -27,6 +27,15 @@ Langkah 10 (addRandomNumber): Buat angka acak 0–9 lalu kirim ke stream lewat a
 
 ![GIF SOAL 6](images/W12SOAL6.gif)
 
+Soal 7
+
+Langkah 13: Menambah NumberStream.addError() yang mengirim event error ke stream via controller.sink.addError('error').
+
+Langkah 14: Menangani error pada listener di initState dengan onError; saat error diterima, state diubah (mis. lastNumber = -1) agar UI merefleksikan kegagalan tanpa crash.
+
+Langkah 15: addRandomNumber() diubah untuk memicu error (memanggil addError) alih-alih mengirim angka acak, sehingga jalur penanganan error bisa diuji.
+
+
 A new Flutter project.
 
 ## Getting Started
