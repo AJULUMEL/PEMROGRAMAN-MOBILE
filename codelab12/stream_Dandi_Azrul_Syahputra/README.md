@@ -19,6 +19,14 @@ listen: callback-based, returns StreamSubscription; bisa pause/resume/cancel; pu
 
 await for: loop async yang menunggu event berurutan; selesai saat stream done/break; error via try/catch; tidak ada pause/resume langsung.
 
+Soal 6
+
+Langkah 8 (initState): Inisialisasi NumberStream dan ColorStream, pasang listener pada keduanya. Setiap angka/warna baru datang, setState memperbarui lastNumber dan bgColor. Dibuat sekali saat widget dibuat.
+
+Langkah 10 (addRandomNumber): Buat angka acak 0–9 lalu kirim ke stream lewat addNumberToSink. Listener di initState menerima event dan UI menampilkan angka terbaru.
+
+![GIF SOAL 6](images/W12SOAL6.gif)
+
 A new Flutter project.
 
 ## Getting Started
