@@ -54,6 +54,14 @@ Soal 9
 
 ![GIF SOAL 9](images/W11SOAL9.gif)
 
+Soal 10
+
+![GIF SOAL 10](images/W11SOAL10.gif)
+
+Langkah 1: Memakai FutureGroup dari package async. Anda membuat objek, menambahkan futures satu per satu, lalu close().
+
+Langkah 4: Memakai Future.wait bawaan Dart. Beri daftar futures sekali, menunggu semuanya selesai lalu mengembalikan List hasil.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
