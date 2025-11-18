@@ -1,4 +1,8 @@
-# stream_nama
+# stream_Dandi Azrul Syahputra
+
+![GIF SOAL 1](images/W12SOAL1.gif)
+
+
 
 A new Flutter project.
 
