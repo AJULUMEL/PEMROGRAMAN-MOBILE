@@ -12,6 +12,13 @@ Maksud kode: setiap 1 detik Stream.periodic memproduksi indeks t, diubah menjadi
 Soal 4
 
 ![GIF SOAL 4](images/W12SOAL4.gif)
+
+Soal 5
+
+listen: callback-based, returns StreamSubscription; bisa pause/resume/cancel; punya onError/onDone. Wajib cancel di dispose.
+
+await for: loop async yang menunggu event berurutan; selesai saat stream done/break; error via try/catch; tidak ada pause/resume langsung.
+
 A new Flutter project.
 
 ## Getting Started
