@@ -42,6 +42,13 @@ Soal 7
 
 ![GIF SOAL 7](images/W11SOAL7.gif)
 
+Soal 8
+
+Jelaskan maksud perbedaan kode langkah 1 dan 4!
+
+Langkah 1 (FutureGroup)Memakai kelas FutureGroup dari package async. 
+
+Langkah 4 (Future.wait)Memakai API bawaan Dart tanpa paket tambahan.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
