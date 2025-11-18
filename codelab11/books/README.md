@@ -32,7 +32,11 @@ Kode langkah 2 memakai Completer untuk membuat Future yang diselesaikan manual: 
 
 ![GIF SOAL 5](images/W11SOAL5.gif)
 
+Soal 6
 
+ pada langkah 2 alur hanya meng-happy path—getNumber mengembalikan Future dari Completer dan calculate sekadar menunggu 5 detik lalu selalu complete(42), tanpa propagasi kesalahan sehingga UI tidak tahu jika gagal. Pada langkah 5–6 ditambahkan penanganan error end‑to‑end: calculate dibungkus try/catch dan saat gagal memanggil completer.completeError(...), lalu onPressed memakai then untuk kasus sukses (update result) dan catchError untuk kasus gagal (menampilkan pesan error). 
+
+![GIF SOAL 6](images/W11SOAL6.gif)
 
 ## Getting Started
 
