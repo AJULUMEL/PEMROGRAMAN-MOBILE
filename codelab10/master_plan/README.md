@@ -44,6 +44,15 @@ Alasan: logika turunan ditempatkan di model (single source of truth), UI lebih b
 
 ![gif praktikum 2](images/praktikum2langkah9.gif)
 
+Berdasarkan Praktikum 3 yang telah Anda lakukan, jelaskan maksud dari gambar diagram berikut ini!
+
+Diagram kiri: Hirarki saat di layar PlanCreatorScreen. MaterialApp dibungkus PlanProvider yang menyediakan List<Plan>. PlanCreatorScreen menampilkan Column berisi TextField (input nama plan) dan Expanded -> ListView (daftar semua plan).
+Navigator Push: Saat user memilih satu plan di ListView, aplikasi melakukan push ke layar detail.
+
+Diagram kanan: Hirarki pada PlanScreen (detail satu plan). MaterialApp tetap memakai provider (state tetap tersedia). PlanScreen (via Scaffold) menampilkan Column dengan Expanded -> ListView (daftar tasks plan terpilih) dan SafeArea -> Text (progress “x out of y tasks”).
+
+![GIF PRAKTIKUM 3](images/tugaspraktikum3.gif)
+
 Fitur: tambah task via FAB, edit deskripsi (TextFormField), centang/uncheck (Checkbox), footer menampilkan progres real‑time dari Plan.completenessMessage lewat ValueListenableBuilder + PlanProvider.
 
 ## Getting Started
