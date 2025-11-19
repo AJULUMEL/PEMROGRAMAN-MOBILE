@@ -16,11 +16,15 @@ class FilterItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: ClipOval(
-            child: Image.network(
-              'https://docs.flutter.dev/cookbook/img-files/effects/instagram-buttons/millennial-texture.jpg',
-              color: color.withOpacity(0.5),
-              colorBlendMode: BlendMode.hardLight,
-              fit: BoxFit.cover,
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: color,
+                border: Border.all(
+                  color: Colors.white.withOpacity(0.3),
+                  width: 2,
+                ),
+              ),
             ),
           ),
         ),

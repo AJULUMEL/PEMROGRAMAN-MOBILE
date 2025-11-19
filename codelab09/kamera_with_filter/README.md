@@ -2,7 +2,7 @@
 # TI - 3F / 07
 # 2341720118
 
-![Soal Praktikum](images/soalpraktikum.png)
+![GIF KAMERA FILTER](images/kamerafilter.gif)
 
 3. async/await di main dipakai agar inisialisasi plugin dan kamera selesai sebelum runApp.
 
