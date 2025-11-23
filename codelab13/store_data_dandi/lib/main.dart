@@ -31,6 +31,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Pizza> myPizzas = [];
 
+  String convertToJSON(List<Pizza> pizzas) {
+    return jsonEncode(pizzas.map((pizza) => pizza.toJson()).toList());
+  }
+
   Future<List<Pizza>> readJsonFile() async {
     String myString = await DefaultAssetBundle.of(context)
         .loadString('assets/pizzalist.json');
@@ -42,6 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
       myPizzas.add(myPizza);
     }
     
+    String json = convertToJSON(myPizzas);
+    print(json);
     return myPizzas;
   }
 
@@ -67,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(myPizzas[index].pizzaName),
-            subtitle: Text(myPizzas[index].description),
+            subtitle: Text('${myPizzas[index].description} - € ${myPizzas[index].price}'),
           );
         },
       ),
