@@ -5,6 +5,33 @@
 ![Screenshoot soal 3](images/W1SOAL3.jpg)
 
 ![SCREENSHOOT SOAL 4](images/W13SOAL4.jpg)
+
+## Soal 5: Penjelasan Kode Lebih Safe dan Maintainable
+
+### Lebih Safe (Aman):
+- **Menghindari typo**: Salah ketik konstanta langsung error saat compile, bukan saat runtime
+- **Type safety**: IDE deteksi kesalahan tipe data lebih awal
+- **Compile-time error**: Bug ketahuan sebelum aplikasi jalan
+
+### Lebih Maintainable (Mudah Dipelihara):
+- **Single source**: Ubah nama kunci cukup di satu tempat (konstanta)
+- **Refactoring mudah**: IDE bisa rename semua referensi otomatis
+- **Konsisten**: Semua kode pakai nama kunci yang sama
+
+**Contoh:**
+```dart
+// ❌ Sebelum: Rawan typo, sulit maintain
+json['pizzaName']  // bisa salah ketik jadi 'pizaName'
+
+// ✅ Sesudah: Safe & maintainable
+const keyName = 'pizzaName';
+json[keyName]  // typo langsung error
+```
+
+---
+
+![screenshoot soal 5](images/W13SOAL5.jpg)
+
 A new Flutter project.
 
 ## Getting Started
