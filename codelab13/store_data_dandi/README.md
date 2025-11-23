@@ -36,6 +36,40 @@ json[keyName]  // typo langsung error
 
 ![SCREENSHOOT SOAL 7](images/W13SOAL7.jpg)
 
+## Soal 8: Penjelasan Langkah 3 dan 7
+
+### Langkah 3 - writeFile():
+```dart
+Future<bool> writeFile() async {
+  try {
+    await myFile.writeAsString('Dandi Azrul Syahputra, 2341720118');
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+```
+- Method async untuk menulis string ke file `pizzas.txt`
+- `writeAsString()`: Tulis data ke storage
+- `try-catch`: Tangani error (misal: permission denied)
+- Return `true` jika berhasil, `false` jika error
+
+### Langkah 7 - initState():
+```dart
+getPaths().then((_) {
+  myFile = File('$documentsPath/pizzas.txt');
+  writeFile();
+});
+```
+- `.then()`: Tunggu `getPaths()` selesai dulu
+- `File('$documentsPath/pizzas.txt')`: Buat file object dengan path lengkap
+- `writeFile()`: Langsung tulis data setelah file dibuat
+- Harus pakai `.then()` karena `documentsPath` harus terisi dulu
+
+---
+
+![SCREENSHOOT SOAL 8](images/W13SOAL8.jpg)
+
 
 A new Flutter project.
 
