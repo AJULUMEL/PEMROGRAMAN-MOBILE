@@ -68,7 +68,7 @@ getPaths().then((_) {
 
 ---
 
-![SCREENSHOOT SOAL 8](images/W13SOAL8.jpg)
+![SCREENSHOOT SOAL 8](images/w13soal8.gif)
 
 
 A new Flutter project.
