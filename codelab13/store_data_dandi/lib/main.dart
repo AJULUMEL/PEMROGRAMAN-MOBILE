@@ -4,6 +4,7 @@ import './model/pizza.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
   String tempPath = '';
   late File myFile;
   String fileText = '';
+  
+  final pwdController = TextEditingController();
+  String myPass = '';
+  final storage = const FlutterSecureStorage();
+  final myKey = 'myPass';
 
   @override
   void initState() {
@@ -118,6 +124,15 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  Future<void> writeToSecureStorage() async {
+    await storage.write(key: myKey, value: pwdController.text);
+  }
+
+  Future<String> readFromSecureStorage() async {
+    String secret = await storage.read(key: myKey) ?? '';
+    return secret;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,17 +140,65 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Path Provider'),
         backgroundColor: Colors.blue,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text('Doc path: ' + documentsPath),
-          Text('Temp path: ' + tempPath),
-          ElevatedButton(
-            onPressed: () => readFile(),
-            child: const Text('Read File'),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              TextField(
+                controller: pwdController,
+                decoration: const InputDecoration(
+                  border: UnderlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  writeToSecureStorage();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Data berhasil disimpan!')),
+                  );
+                },
+                child: const Text('Save Value'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  readFromSecureStorage().then((value) {
+                    setState(() {
+                      myPass = value;
+                    });
+                  });
+                },
+                child: const Text('Read Value'),
+              ),
+              const SizedBox(height: 20),
+              if (myPass.isNotEmpty)
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Data yang tersimpan:',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          myPass,
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+            ],
           ),
-          Text(fileText),
-        ],
+        ),
       ),
     );
   }
