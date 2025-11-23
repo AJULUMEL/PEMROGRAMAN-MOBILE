@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import './model/pizza.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,11 +33,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Pizza> myPizzas = [];
   int appCounter = 0;
+  String documentsPath = '';
+  String tempPath = '';
 
   @override
   void initState() {
     super.initState();
     readAndWritePreference();
+    getPaths();
     readJsonFile();
   }
 
@@ -47,6 +51,15 @@ class _MyHomePageState extends State<MyHomePage> {
     await prefs.setInt('appCounter', appCounter);
     setState(() {
       appCounter = appCounter;
+    });
+  }
+
+  Future<void> getPaths() async {
+    final docDir = await getApplicationDocumentsDirectory();
+    final tempDir = await getTemporaryDirectory();
+    setState(() {
+      documentsPath = docDir.path;
+      tempPath = tempDir.path;
     });
   }
 
@@ -82,22 +95,29 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dandi JSON'),
+        title: const Text('Path Provider'),
         backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text('You have opened the app $appCounter times.'),
-            ElevatedButton(
-              onPressed: () {
-                deletePreference();
-              },
-              child: const Text('Reset counter'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              documentsPath.isEmpty 
+                ? 'Doc path: Loading...' 
+                : 'Doc path: $documentsPath',
             ),
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              tempPath.isEmpty 
+                ? 'Temp path: Loading...' 
+                : 'Temp path: $tempPath',
+            ),
+          ),
+        ],
       ),
     );
   }

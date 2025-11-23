@@ -33,6 +33,10 @@ json[keyName]  // typo langsung error
 ![screenshoot soal 5](images/W13SOAL5.jpg)
 
 ![SCREENSHOOT SOAL 6](images/W13SOAL6.jpg)
+
+![SCREENSHOOT SOAL 7](images/W13SOAL7.jpg)
+
+
 A new Flutter project.
 
 ## Getting Started
