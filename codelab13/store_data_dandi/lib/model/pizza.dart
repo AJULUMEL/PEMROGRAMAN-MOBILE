@@ -13,9 +13,9 @@ class Pizza {
 
   Pizza.fromJson(Map<String, dynamic> json)
     : id = int.tryParse(json[keyId].toString()) ?? 0,
-      pizzaName = (json[keyName] != null ? json[keyName] : 'No name')
+      pizzaName = (json[keyName] ?? 'No name')
           .toString(),
-      description = (json[keyDescription] != null ? json[keyDescription] : '')
+      description = (json[keyDescription] ?? '')
           .toString(),
       price = double.tryParse(json[keyPrice].toString()) ?? 0,
       imageUrl = json[keyImage] ?? '';
