@@ -1,10 +1,10 @@
 # store_data_dandi
 
-![Screenshoot soal 2](images/W13SOAL2.jpg)
+<img src="images/W13SOAL2.jpg" width="300">
 
-![Screenshoot soal 3](images/W1SOAL3.jpg)
+<img src="images/W1SOAL3.jpg" width="300">
 
-![SCREENSHOOT SOAL 4](images/W13SOAL4.jpg)
+<img src="images/W13SOAL4.jpg" width="300">
 
 ## Soal 5: Penjelasan Kode Lebih Safe dan Maintainable
 
@@ -30,11 +30,11 @@ json[keyName]  // typo langsung error
 
 ---
 
-![screenshoot soal 5](images/W13SOAL5.jpg)
+<img src="images/W13SOAL5.jpg" width="300">
 
-![SCREENSHOOT SOAL 6](images/W13SOAL6.jpg)
+<img src="images/W13SOAL6.jpg" width="300">
 
-![SCREENSHOOT SOAL 7](images/W13SOAL7.jpg)
+<img src="images/W13SOAL7.jpg" width="300">
 
 ## Soal 8: Penjelasan Langkah 3 dan 7
 
@@ -68,9 +68,9 @@ getPaths().then((_) {
 
 ---
 
-![GIF SOAL 8](images/w13soal8.gif)
+<img src="images/w13soal8.gif" width="300">
 
-![GIF SOAL 9](images/W13SOAL9.gif)
+<img src="images/W13SOAL9.gif" width="300">
 
 A new Flutter project.
 
