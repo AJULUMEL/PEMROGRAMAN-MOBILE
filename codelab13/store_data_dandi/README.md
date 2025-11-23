@@ -1,5 +1,8 @@
 # store_data_dandi
 
+![Screenshoot soal 2](images/W13SOAL2.jpg)
+
+
 A new Flutter project.
 
 ## Getting Started
