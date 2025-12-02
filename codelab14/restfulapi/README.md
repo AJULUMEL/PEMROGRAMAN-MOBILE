@@ -1,12 +1,14 @@
 # restfulapi_DANDI
 
-![Screenshoot W14SOAL1](images/W14SOAL1.jpg)
+<img src="images/W14SOAL1.jpg" alt="Screenshoot W14SOAL1" width="700" />
 
-![Screenshoot W14SOAL2](images/W14SOAL2.jpg)
+<img src="images/W14SOAL2.jpg" alt="Screenshoot W14SOAL2" width="700" />
 
-![Screenshoot W14SOAL3.1](images/W14SOAL3.1.jpg)
+<img src="images/W14SOAL3.1.jpg" alt="Screenshoot W14SOAL3.1" width="700" />
 
-![Screenshoot W14SOAL3.2](images/W14SOAL3.2.jpg)
+<img src="images/W14SOAL3.2.jpg" alt="Screenshoot W14SOAL3.2" width="700" />
+
+<img src="images/W14SOAL4.gif" alt="GIF W14SOAL4" width="600" />
 
 A new Flutter project.
 

@@ -83,23 +83,38 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: (snapshot.data == null) ? 0 : snapshot.data!.length,
                 itemBuilder: (BuildContext context, int position) {
                   final item = snapshot.data![position];
-                  return ListTile(
-                    title: Text(item.pizzaName ?? ''),
-                    subtitle: Text(
-                      '${item.description ?? ''} - € ${item.price ?? 0}'
-                      '${item.rating != null ? ' ⭐ ${item.rating}' : ''}'
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PizzaDetailScreen(
-                            pizza: item,
-                            isNew: false,
-                          ),
-                        ),
-                      );
+                  return Dismissible(
+                    key: Key(position.toString()),
+                    onDismissed: (direction) async {
+                      HttpHelper helper = HttpHelper();
+                      // Optimistically remove from UI
+                      setState(() {
+                        snapshot.data!.removeWhere(
+                          (element) => element.id == item.id,
+                        );
+                      });
+                      if (item.id != null) {
+                        await helper.deletePizza(item.id!);
+                      }
                     },
+                    child: ListTile(
+                      title: Text(item.pizzaName ?? ''),
+                      subtitle: Text(
+                        '${item.description ?? ''} - € ${item.price ?? 0}'
+                        '${item.rating != null ? ' ⭐ ${item.rating}' : ''}'
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PizzaDetailScreen(
+                              pizza: item,
+                              isNew: false,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   );
                 });
           }),
