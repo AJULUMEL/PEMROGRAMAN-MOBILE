@@ -4,6 +4,10 @@
 
 ![Screenshoot W14SOAL2](images/W14SOAL2.jpg)
 
+![Screenshoot W14SOAL3.1](images/W14SOAL3.1.jpg)
+
+![Screenshoot W14SOAL3.2](images/W14SOAL3.2.jpg)
+
 A new Flutter project.
 
 ## Getting Started

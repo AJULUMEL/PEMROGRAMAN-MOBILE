@@ -27,6 +27,10 @@ class HttpHelper {
         List<Pizza> pizzas = jsonResponse
             .map<Pizza>((i) => Pizza.fromJson(i))
             .toList();
+        // Customize one item with user's name & NIM
+        if (pizzas.isNotEmpty) {
+          pizzas[0].pizzaName = 'Dandi - 2341720118';
+        }
         return pizzas;
       } else {
         print('Error: Status code ${result.statusCode}');
@@ -45,6 +49,18 @@ class HttpHelper {
     http.Response r = await http.post(
       url,
       body: post,
+      headers: {'Content-Type': 'application/json'},
+    );
+    return r.body;
+  }
+
+  Future<String> putPizza(Pizza pizza) async {
+    const putPath = '/pizza';
+    String put = json.encode(pizza.toJson());
+    Uri url = Uri.https(authority, putPath);
+    http.Response r = await http.put(
+      url,
+      body: put,
       headers: {'Content-Type': 'application/json'},
     );
     return r.body;
